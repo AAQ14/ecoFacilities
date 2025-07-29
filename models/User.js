@@ -4,12 +4,15 @@ const {model,Schema} = mongoose
 const userSchema = new Schema({
     userName : {
         type: String,
-        enum: ["user", "admin"],
         require: true 
     }, 
     password : {
         type: String, 
         require: true 
+    },
+    userType: {
+        type: String,
+        enum: ["Admin", "User"]
     }
 })
 

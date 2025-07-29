@@ -1,10 +1,13 @@
 //imports
 const express = require("express")
 const app = express()
-const dotenv = require("dotenv")
+const dotenv = require("dotenv").config()
 const morgan = require("morgan")
 const methodOverride = require("method-override")
 const conntectToDB = require("./config/db")
+
+const User = require("./models/User")
+const EcoFacility = require("./models/EcoFacility")
 
 //middlewares
 app.use(express.static('public'))
@@ -26,7 +29,7 @@ conntectToDB()
 
 
 
-PORT = process.env.PORT || 3000
+port = process.env.PORT || 3000
 app.listen(PORT => {
-        console.log("listening on port: " + PORT)
+        console.log("listening on port: " + port)
 })
