@@ -22,7 +22,11 @@ const ecoFacilitySchema = new Schema({
     }, 
     town: String ,
     contributor: String,
-    status: String
+    status: String,
+    contributor: {
+        type: Schema.Types.ObjectId,
+        ref : "User"
+    }
 })
 
 const EcoFacility = model("EcoFacility", ecoFacilitySchema)
