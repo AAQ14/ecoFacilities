@@ -21,7 +21,6 @@ const ecoFacilitySchema = new Schema({
         type: String
     }, 
     town: String ,
-    contributor: String,
     status: String,
     contributor: {
         type: Schema.Types.ObjectId,

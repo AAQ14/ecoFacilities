@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 const {model,Schema} = mongoose
 
 const userSchema = new Schema({
-    userName : {
+    username : {
         type: String,
         require: true 
     }, 
@@ -12,7 +12,8 @@ const userSchema = new Schema({
     },
     userType: {
         type: String,
-        enum: ["Admin", "User"]
+        enum: ["Admin", "User"],
+        default: "User"
     }
 })
 

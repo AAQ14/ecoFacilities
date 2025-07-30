@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eco Facilities</title>
+  </head>
+  <body>
+    <%- include('../partials/header') %>
+
+    <h1>Eco Facilities</h1>
+    <% allEcoFacilities.forEach((facility)=>{%>
+    <div>
+      <p>name: <%= facility.name%></p>
+      <p>category: <%=facility.category%></p>
+      <p>description: <%=facility.descrtiption%></p>
+      <p>house number: <%=facility.houseNumber%></p>
+      <p>street name: <%=facility.streetName%></p>
+      <p>town: <%=facility.town%></p>
+      <p>status: <%=facility.status%></p>
+      <form action="/ecoFacilities/update/<%=facility._id%>" method="get">
+        <button type="submit">Update facility</button>
+      </form>
+      <form>
+        <button type="submit">Delete facility</button>
+      </form>
+    </div>
+    <hr />
+    <%})%>
+  </body>
+</html>
