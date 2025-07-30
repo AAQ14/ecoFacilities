@@ -18,6 +18,7 @@
       <p>street name: <%=facility.streetName%></p>
       <p>town: <%=facility.town%></p>
       <p>status: <%=facility.status%></p>
+      <p>contributor: <%= facility.contributor.username%></p>
       <form action="/ecoFacilities/update/<%=facility._id%>" method="get">
         <button type="submit">Update facility</button>
       </form>

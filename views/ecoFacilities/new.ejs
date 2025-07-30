@@ -1,37 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>New Eco Facility</title>
-</head>
-<body>
-    <%- include('../partials/header')  %>
+  </head>
+  <body>
+    <%- include('../partials/header') %>
 
     <h1>Add new Facility</h1>
     <form action="/ecoFacilities/new" method="post">
-        <label for="name">name: </label>
-        <input type="text" name="name" id="name"><hr>
+      <label for="name">name: </label>
+      <input type="text" name="name" id="name" />
+      <hr />
 
-          <label for="category">category: </label>
-        <input type="text" name="category" id="category"><hr>
+      <label for="category">category: </label>
+      <select name="category" id="category">
+        <option value="Recycling Bins">Recycling Bins</option>
+        <option value="e-Scooters">e-Scooters</option>
+        <option value="Bike Share Stations">Bike Share Stations</option>
+        <option value="Public EV Charging Stations">
+          Public EV Charging Stations
+        </option>
+        <option value="Battery Recycling Points">
+          Battery Recycling Points
+        </option>
+        <option value="Community Compost Bins">Community Compost Bins</option>
+        <option value="Solar-Powered Benches">Solar-Powered Benches</option>
+        <option value="Green Roofs">Green Roofs</option>
+        <option value="Public Water Refill Stations">
+          Public Water Refill Stations
+        </option>
+        <option value="Waste Oil Collection Points">
+          Waste Oil Collection Points
+        </option>
+        <option value="Book Swap Stations">Book Swap Stations</option>
+        <option value="Pollinator Gardens">Pollinator Gardens</option>
+        <option value="E-Waste Collection Bins">E-Waste Collection Bins</option>
+        <option value="ClothingDonation Bins">Clothing Donation Bins</option>
+        <option value="Community Tool Libraries">
+          Community Tool Libraries
+        </option>
+      </select>
+      <hr />
 
-        <label for="descrtiption">descrtiption: </label>
-        <textarea name="descrtiption" id="descrtiption"></textarea><hr>
+      <label for="descrtiption">descrtiption: </label>
+      <textarea name="descrtiption" id="descrtiption"></textarea>
+      <hr />
 
-        <label for="houseNumber">houseNumber: </label>
-        <input type="text" name="houseNumber" id="houseNumber"><hr>
+      <label for="houseNumber">houseNumber: </label>
+      <input type="text" name="houseNumber" id="houseNumber" />
+      <hr />
 
-        <label for="streetName">streetName: </label>
-        <input type="text" name="streetName" id="streetName"><hr>
-        
-        <label for="town">town: </label>
-        <input type="text" name="town" id="town"><hr>
-        
-        <label for="status">status: </label>
-        <input type="text" name="status" id="status"><hr>
+      <label for="streetName">streetName: </label>
+      <input type="text" name="streetName" id="streetName" />
+      <hr />
 
-        <button type="submit">Add facility</button>
+      <label for="town">town: </label>
+      <input type="text" name="town" id="town" />
+      <hr />
+
+      <label for="status">status: </label>
+      <input type="text" name="status" id="status" />
+      <hr />
+
+      <%if(user){%>
+      <label id="contributor" name="contributor">Contributor: <%=user.username%></label>
+      <%}%>
+      <hr />
+      <button type="submit">Add facility</button>
     </form>
-</body>
+  </body>
 </html>

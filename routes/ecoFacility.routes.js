@@ -1,12 +1,14 @@
 const router = require("express").Router()
 const EcoFacility = require("../models/ecoFacility")
+const User = require("../models/User")
 
 router.get("/new", (req, res) => {
-    res.render("ecoFacilities/new.ejs")
+    res.render("ecoFacilities/new.ejs", {user: req.session.user})
 })
 
 router.post("/new", async (req, res) => {
     try {
+       req.body.contributor = req.session.user._id
         await EcoFacility.create(req.body)
         console.log("Eco Facility added successfully")
         res.redirect("/ecoFacilities/new")
@@ -17,9 +19,8 @@ router.post("/new", async (req, res) => {
 
 router.get("", async (req, res) => {
     try {
-        const allEcoFacilities = await EcoFacility.find()
-        console.log(allEcoFacilities)
-        res.render("ecoFacilities/allEcoFacilities.ejs", { allEcoFacilities: allEcoFacilities })
+        const allEcoFacilities = await EcoFacility.find().populate('contributor')
+        res.render("ecoFacilities/allEcoFacilities.ejs", {  allEcoFacilities })
     } catch (err) {
         console.log(err)
     }
@@ -27,7 +28,7 @@ router.get("", async (req, res) => {
 
 router.get("/update/:id", async (req, res) => {
     try {
-        const ecoFacility = await EcoFacility.findById(req.params.id)
+        const ecoFacility = await EcoFacility.findById(req.params.id).populate('contributor')
         res.render("ecoFacilities/updateFacility.ejs", { ecoFacility })
     } catch (err) {
         console.log(err)
@@ -45,7 +46,7 @@ router.put("/update/:id", async(req,res) => {
     }
 })
 
-router.delete("delete/:id", async(req,res)=>{
+router.delete("/delete/:id", async(req,res)=>{
     try{
         await EcoFacility.findByIdAndDelete(req.params.id)
         res.redirect("/ecoFacilities")

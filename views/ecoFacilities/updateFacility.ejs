@@ -15,12 +15,23 @@
       <hr />
 
       <label for="category">category: </label>
-      <input
-        type="text"
-        name="category"
-        id="category"
-        value="<%=ecoFacility.category%>"
-      />
+      
+      <select name="category" id="category"> <!--selected = true-->
+         <option value="Recycling Bins" <%if(ecoFacility.category=="Recycling Bins"){%> selected="true" <%}%>>Recycling Bins</option>
+        <option value="e-Scooters" <%if(ecoFacility.category=="e-Scooters"){%> selected="true" <%}%>>e-Scooters</option>
+        <option value="Public EV Charging Stations" <%if(ecoFacility.category=="Public EV Charging Stations"){%> selected="true" <%}%>>Public EV Charging Stations</option>
+        <option value="Battery Recycling Points" <%if(ecoFacility.category=="Battery Recycling Points"){%> selected="true" <%}%>>Battery Recycling Points</option>
+        <option value="Community Compost Bins" <%if(ecoFacility.category=="Community Compost Bins"){%> selected="true" <%}%>>Community Compost Bins</option>
+        <option value="Solar-Powered Benches" <%if(ecoFacility.category=="Solar-Powered Benches"){%> selected="true" <%}%>>Solar-Powered Benches</option>
+        <option value="Green Roofs" <%if(ecoFacility.category=="Green Roofs"){%> selected="true" <%}%>>Green Roofs</option>
+        <option value="Public Water Refill Stations" <%if(ecoFacility.category=="Public Water Refill Stations"){%> selected="true" <%}%>>Public Water Refill Stations</option>
+        <option value="Waste Oil Collection Points" <%if(ecoFacility.category=="Waste Oil Collection Points"){%> selected="true" <%}%>>Waste Oil Collection Points</option>
+        <option value="Book Swap Stations" <%if(ecoFacility.category=="Book Swap Stations"){%> selected="true" <%}%>>Book Swap Stations</option>
+        <option value="Pollinator Gardens" <%if(ecoFacility.category=="Pollinator Gardens"){%> selected="true" <%}%>>Pollinator Gardens</option>
+        <option value="E-Waste Collection Bins" <%if(ecoFacility.category=="E-Waste Collection Bins"){%> selected="true" <%}%>>E-Waste Collection Bins</option>
+        <option value="Clothing Donation Bins" <%if(ecoFacility.category=="Clothing Donation Bins"){%> selected="true" <%}%>>Clothing Donation Bins</option>
+        <option value="Community Tool Libraries" <%if(ecoFacility.category=="Community Tool Libraries"){%> selected="true" <%}%>>Community Tool Libraries</option>
+      </select>
       <hr />
 
       <label for="descrtiption">descrtiption: </label>
@@ -58,7 +69,12 @@
       />
       <hr />
 
+      <label id="contributor" name="contributor">Contributor: <%= ecoFacility.contributor.username%></label><hr/>
+
       <button type="submit">Update Facility</button>
+    </form>
+    <form action="/ecoFacilities" method="get">
+      <button type="submit">Cancel</button>
     </form>
   </body>
 </html>

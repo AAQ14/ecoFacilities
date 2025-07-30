@@ -56,10 +56,17 @@ router.get("/login" , (req,res)=>{
 
 router.post("/login",async (req,res)=>{
     try{
+
+        const{username, password} = req.body
+        
         const userInDataBase = await User.findOne({username : req.body.username})
         
+        if(!username || !password){
+            return res.render("auth/login.ejs", {error: "All fields are required"})
+        }
+
         if(!userInDataBase) {
-            return res.render("auth/login", {error: " Username is not found"})
+            return res.render("auth/login.ejs", {error: " Username is not found"})
         }
 
         const validPass = bcrypt.compareSync(
@@ -68,7 +75,7 @@ router.post("/login",async (req,res)=>{
         )
 
         if(!validPass) {
-            return res.render("auth/login", {error: "Incorrect password"})
+            return res.render("auth/login.ejs", {error: "Incorrect password"})
         }
 
         req.session.user = {
@@ -79,7 +86,7 @@ router.post("/login",async (req,res)=>{
         res.redirect("/auth/login")
     }catch(err){
         console.log("Error during sign-in:" , err)
-        res.render("auth/login", {error: "An unexpected error occured."}) //template
+        res.render("auth/login.ejs", {error: "An unexpected error occured."}) //template
     }
 })
 

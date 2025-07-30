@@ -10,6 +10,7 @@ const passUserToView = require("./middleware/passUserToView")
 const isSignedIn = require("./middleware/isSignedIn")
 const authRoutes = require("./routes/auth.routes")
 const EcoFacilityRoutes = require("./routes/ecoFacility.routes") 
+const usersRoutes = require("./routes/users.route")
 
 const User = require("./models/User")
 const EcoFacility = require("./models/ecoFacility")
@@ -36,6 +37,7 @@ conntectToDB()
 //routes
 app.use("/auth", authRoutes)
 app.use("/ecoFacilities", EcoFacilityRoutes)
+app.use("/users", usersRoutes)
 
 app.use(isSignedIn) //all protected routes must be below this middleware
 
