@@ -7,10 +7,17 @@
   </head>
   <body>
     <h1>All users</h1>
+    <form action="/users/new" method="get">
+      <button type="submit">Add new user</button>
+    </form>
     <%allUsers.forEach((user) => {%>
     <p>Username: <%= user.username %></p>
     <form action="/users/update/<%=user._id%>" method="get">
-        <button>UPDATE USER</button>
+        <button type="submit">UPDATE USER</button>
+    </form>
+
+    <form action="/users/delete/<%= user._id%>?_method=DELETE" method="post">
+      <button type="submit">DELETE USER</button>
     </form>
     <hr />
     <%})%>
