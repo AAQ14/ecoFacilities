@@ -21,7 +21,7 @@
       <form action="/ecoFacilities/update/<%=facility._id%>" method="get">
         <button type="submit">Update facility</button>
       </form>
-      <form>
+      <form action="/ecoFacilities/delete/<%= facility._id%>?_method=DELETE" method="post">
         <button type="submit">Delete facility</button>
       </form>
     </div>

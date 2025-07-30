@@ -25,13 +25,33 @@ router.get("", async (req, res) => {
     }
 })
 
-router.get("/details/:id", async (req, res) => {
+router.get("/update/:id", async (req, res) => {
     try {
         const ecoFacility = await EcoFacility.findById(req.params.id)
-        res.render("ecoFacilities/facility-details.ejs", { ecoFacility })
+        res.render("ecoFacilities/updateFacility.ejs", { ecoFacility })
     } catch (err) {
         console.log(err)
     }
 })
 
+
+router.put("/update/:id", async(req,res) => {
+    try{
+        await EcoFacility.findByIdAndUpdate(req.params.id, req.body)
+        res.redirect("/ecoFacilities")
+        console.log("eco facility updated successfully")
+    }catch(err){
+        console.log("can't update the facility", err)
+    }
+})
+
+router.delete("delete/:id", async(req,res)=>{
+    try{
+        await EcoFacility.findByIdAndDelete(req.params.id)
+        res.redirect("/ecoFacilities")
+        console.log("facility have been deleted successfully")
+    }catch(err){
+        console.log("can't delete the facility", err)
+    }
+})
 module.exports = router

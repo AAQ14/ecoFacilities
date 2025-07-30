@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include("../partials/header")%>
+    <h1>Eco Facility detials</h1>
+
+    <form action="/ecoFacilities/update/<%= ecoFacility._id%>?_method=PUT" method="post">
+      <label for="name">name: </label>
+      <input type="text" name="name" id="name" value="<%= ecoFacility.name%>" />
+      <hr />
+
+      <label for="category">category: </label>
+      <input
+        type="text"
+        name="category"
+        id="category"
+        value="<%=ecoFacility.category%>"
+      />
+      <hr />
+
+      <label for="descrtiption">descrtiption: </label>
+      <textarea name="descrtiption" id="descrtiption"><%=ecoFacility.descrtiption%></textarea >
+      <hr />
+
+      <label for="houseNumber">houseNumber: </label>
+      <input
+        type="text"
+        name="houseNumber"
+        id="houseNumber"
+        value=" <%=ecoFacility.houseNumber%>"
+      />
+      <hr />
+
+      <label for="streetName">streetName: </label>
+      <input
+        type="text"
+        name="streetName"
+        id="streetName"
+        value="<%=ecoFacility.streetName%>"
+      />
+      <hr />
+
+      <label for="town">town: </label>
+      <input type="text" name="town" id="town" value="<%=ecoFacility.town%>" />
+      <hr />
+
+      <label for="status">status: </label>
+      <input
+        type="text"
+        name="status"
+        id="status"
+        value="<%=ecoFacility.status%>"
+      />
+      <hr />
+
+      <button type="submit">Update Facility</button>
+    </form>
+  </body>
+</html>
