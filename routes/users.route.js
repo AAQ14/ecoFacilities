@@ -39,4 +39,32 @@ router.post("/new", async(req,res)=>{
     }
 })
 
+router.get("", async (req,res)=>{
+    try {
+        const allUsers = await User.find()
+        res.render("users/all.ejs", {allUsers})
+    } catch (err) {
+        console.log(err)
+    }
+})
+
+router.get("/update/:id", async (req,res)=>{
+    try {
+        const foundUser = await User.findById(req.params.id)
+        res.render("users/update.ejs", {foundUser})
+    } catch (err) {
+        console.log("error occured: " , err)
+    }
+})
+
+router.put("/update/:id", async (req,res)=>{
+    try {
+        await User.findByIdAndUpdate(req.params.id, req.body)
+        res.redirect("/users")
+        console.log("user info updated successfully")
+    } catch (err) {
+      console.log(err)  
+    }
+})
+
 module.exports = router

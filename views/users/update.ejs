@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update user info</title>
+</head>
+<body>
+    <h1>Update user info</h1>
+    
+    <form action="/users/update/<%= foundUser._id %>?_method=PUT" method="post">
+        <label for="username">Username: </label>
+        <input type="text" name="username" id="username" value="<%= foundUser.username%>">
+
+        <button type="submit">UPDATE USER</button>
+    </form>
+</body>
+</html>
