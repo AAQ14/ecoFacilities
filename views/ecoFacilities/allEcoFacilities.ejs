@@ -9,6 +9,11 @@
     <%- include('../partials/header') %>
 
     <h1>Eco Facilities</h1>
+    <% if (user){%>
+      <form action="/ecoFacilities/new" method="get">
+        <button type="submit">Add new facility</button>
+      </form>
+    <%} %>
     <% allEcoFacilities.forEach((facility)=>{%>
     <div>
       <p>name: <%= facility.name%></p>
@@ -19,12 +24,14 @@
       <p>town: <%=facility.town%></p>
       <p>status: <%=facility.status%></p>
       <p>contributor: <%= facility.contributor.username%></p>
+       <% if(user) {%>
       <form action="/ecoFacilities/update/<%=facility._id%>" method="get">
         <button type="submit">Update facility</button>
       </form>
       <form action="/ecoFacilities/delete/<%= facility._id%>?_method=DELETE" method="post">
         <button type="submit">Delete facility</button>
       </form>
+      <% }%>
     </div>
     <hr />
     <%})%>

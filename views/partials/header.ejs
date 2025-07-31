@@ -1,9 +1,12 @@
 <nav>
     <% if(user) {%>
+        <% if(user.userType === 'Admin') {%>
     <a href="/ecoFacilities">Eco Facilities</a>
-    <a href="/ecoFacilities/new">Add new facility</a>
+    <a href="/users">Users Info</a>
     <a href="/auth/logout">Logout</a>
-    <%= user.Name%>
+    <%= user.username%>
+
+    <% } %>
 
     <%} else{%>
         <a href="/auth/login">Login</a>

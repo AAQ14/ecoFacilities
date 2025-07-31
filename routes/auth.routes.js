@@ -80,6 +80,7 @@ router.post("/login",async (req,res)=>{
 
         req.session.user = {
             username: userInDataBase.username,
+            userType: userInDataBase.userType,
             _id: userInDataBase._id
         }
 

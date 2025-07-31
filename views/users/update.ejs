@@ -6,6 +6,7 @@
     <title>Update user info</title>
 </head>
 <body>
+    <%- include('../partials/header') %>
     <h1>Update user info</h1>
     
     <form action="/users/update/<%= foundUser._id %>?_method=PUT" method="post">
