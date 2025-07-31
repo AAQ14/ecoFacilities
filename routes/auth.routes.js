@@ -84,7 +84,7 @@ router.post("/login",async (req,res)=>{
             _id: userInDataBase._id
         }
 
-        res.redirect("/ecoFacility")
+        res.redirect("/ecoFacilities")
     }catch(err){
         console.log("Error during sign-in:" , err)
         res.render("auth/login.ejs", {error: "An unexpected error occured."}) //template

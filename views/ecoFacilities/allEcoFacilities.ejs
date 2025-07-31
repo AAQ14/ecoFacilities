@@ -15,8 +15,9 @@
         <button type="submit">Add new facility</button>
       </form>
     <%} %>
-    <% allEcoFacilities.forEach((facility)=>{%>
-    <div>
+    <div class="facilities">
+      <% allEcoFacilities.forEach((facility)=>{%>
+    <div class="oneFac">
       <p>name: <%= facility.name%></p>
       <p>category: <%=facility.category%></p>
       <p>description: <%=facility.descrtiption%></p>
@@ -25,6 +26,7 @@
       <p>town: <%=facility.town%></p>
       <p>status: <%=facility.status%></p>
       <p>contributor: <%= facility.contributor.username%></p>
+      <img src="<%= facility.img%> " width="100px">
        <% if(user) {%>
       <form action="/ecoFacilities/update/<%=facility._id%>" method="get">
         <button type="submit">Update facility</button>
@@ -32,9 +34,12 @@
       <form action="/ecoFacilities/delete/<%= facility._id%>?_method=DELETE" method="post">
         <button type="submit">Delete facility</button>
       </form>
+      
       <% }%>
     </div>
     <hr />
     <%})%>
+    </div>
+    
   </body>
 </html>

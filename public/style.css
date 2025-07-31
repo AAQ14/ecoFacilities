@@ -1,3 +1,15 @@
 body {
     /*background-color: #A2AF9B;*/
 }
+.facilities{
+    display: flex;
+    text-align: center;
+}
+
+.oneFac{
+    width: 300px;
+    height: 200px;
+    padding: 20px;
+    border: 5px solid black;
+    margin: 10px;
+}

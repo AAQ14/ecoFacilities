@@ -9,6 +9,15 @@ router.get("/new", (req, res) => {
 router.post("/new", async (req, res) => {
     try {
        req.body.contributor = req.session.user._id
+       if(req.body.category === "Recycling Bins"){
+        req.body.img = "/images/recycling Bins.png"
+       }else if(req.body.category === "Bike Share Stations"){
+         req.body.img = "/images/BikeShareStation.png"
+       }else if(req.body.category === "e-Scooters"){
+         req.body.img = "/images/e-Scooters.jpg"
+       }else if(req.body.category === "Public EV Charging Stations"){
+         req.body.img = "/images/PublicEVChargingStations.png"
+       }
         await EcoFacility.create(req.body)
         console.log("Eco Facility added successfully")
         res.redirect("/ecoFacilities/new")

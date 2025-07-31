@@ -27,6 +27,9 @@ const ecoFacilitySchema = new Schema({
     contributor: {
         type: Schema.Types.ObjectId,
         ref : "User"
+    },
+    img: {
+        type: String
     }
 })
 
