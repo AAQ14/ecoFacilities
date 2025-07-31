@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>New Eco Facility</title>
+    <link rel="stylesheet" href="/style.css">
   </head>
   <body>
     <%- include('../partials/header') %>
@@ -68,8 +69,13 @@
       <%if(user){%>
       <label id="contributor" name="contributor">Contributor: <%=user.username%></label>
       <%}%>
+      
       <hr />
       <button type="submit">Add facility</button>
+
     </form>
+    <form action="/ecoFacilities" method="get">
+      <button type="submit">Cancel</button>
+     </form>
   </body>
 </html>

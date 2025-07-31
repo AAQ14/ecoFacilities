@@ -17,7 +17,7 @@ router.post("/new", async (req, res) => {
     }
 })
 
-router.get("", async (req, res) => {
+router.get("/", async (req, res) => {
     try {
         const allEcoFacilities = await EcoFacility.find().populate('contributor')
         res.render("ecoFacilities/allEcoFacilities.ejs", {  allEcoFacilities })
