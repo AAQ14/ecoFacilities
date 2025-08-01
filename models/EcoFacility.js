@@ -30,7 +30,11 @@ const ecoFacilitySchema = new Schema({
     },
     img: {
         type: String
-    }
+    },
+    like: [{
+        type: Schema.Types.ObjectId,
+        ref : "User"
+    }]
 })
 
 const EcoFacility = model("EcoFacility", ecoFacilitySchema)

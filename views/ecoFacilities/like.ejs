@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+     <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+   
+  </head>
+  <body>
+       <!-- <button id="likeButton" style="font-size: 18px">
+          <i class="fa fa-heart" id="fa-heart"></i>
+        </button> -->
+
+        <div id="like">
+          click me
+        </div>
+
+        <p id="demo"></p>
+         <script>
+      // const button = document.querySelector("#likeButton");
+
+      // button.addEventListener((event) => {
+      //   console.log("button clicked");
+      // });
+
+      document.getElementById("like").addEventListener("click", clickk)
+
+      function clickk(){
+         document.getElementById("demo").innerHTML = "u liked"
+      }
+    </script>
+  </body>
+</html>

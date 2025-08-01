@@ -4,13 +4,15 @@ body {
 .facilities{
     display: flex;
     text-align: center;
-    flex: row;
+    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: center;
+    /* justify-content: center; */
+    align-items: center;
 }
 
 .oneFac{
-    width: 25%;
+    display: flex;
+    width: 70%;
     height: 100%;
     padding: 10px;
 box-shadow: 2px 10px 98px 0px rgba(0,0,0,0.75);
@@ -20,4 +22,8 @@ box-shadow: 2px 10px 98px 0px rgba(0,0,0,0.75);
     margin: 12px;
     /* overflow: scroll; */
     
+}
+
+img {
+    width: 200px;
 }

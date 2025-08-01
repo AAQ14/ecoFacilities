@@ -4,42 +4,75 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eco Facilities</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script>
+      // const button = document.querySelector("#likeButton");
+
+      function clickedLike(){
+
+        console.log("button clicked")
+      }
+      // button.addEventListener((event) => {
+      //   console.log("button clicked");
+      // });
+
+  
+    </script>
   </head>
   <body>
     <%- include('../partials/header') %>
 
     <h1>Eco Facilities</h1>
     <% if (user){%>
-      <form action="/ecoFacilities/new" method="get">
-        <button type="submit">Add new facility</button>
-      </form>
+    <form action="/ecoFacilities/new" method="get">
+      <button type="submit">Add new facility</button>
+    </form>
     <%} %>
     <div class="facilities">
       <% allEcoFacilities.forEach((facility)=>{%>
-    <div class="oneFac">
-      <p>name: <%= facility.name%></p>
-      <p>category: <%=facility.category%></p>
-      <p>description: <%=facility.descrtiption%></p>
-      <p>house number: <%=facility.houseNumber%></p>
-      <p>street name: <%=facility.streetName%></p>
-      <p>town: <%=facility.town%></p>
-      <p>status: <%=facility.status%></p>
-      <p>contributor: <%= facility.contributor.username%></p>
-      <img src="<%= facility.img%> " width="100px">
-       <% if(user) {%>
-      <form action="/ecoFacilities/update/<%=facility._id%>" method="get">
-        <button type="submit">Update facility</button>
-      </form>
-      <form action="/ecoFacilities/delete/<%= facility._id%>?_method=DELETE" method="post">
-        <button type="submit">Delete facility</button>
-      </form>
-      
-      <% }%>
+      <div class="oneFac">
+        <p>name: <%= facility.name%></p>
+        <p>category: <%=facility.category%></p>
+        <p>description: <%=facility.descrtiption%></p>
+        <p>house number: <%=facility.houseNumber%></p>
+        <p>street name: <%=facility.streetName%></p>
+        <p>town: <%=facility.town%></p>
+        <p>status: <%=facility.status%></p>
+        <p>contributor: <%= facility.contributor.username%></p>
+        <img src="<%= facility.img%> " />
+
+        <% if(user) {%>
+        <form action="/ecoFacilities/update/<%=facility._id%>" method="get">
+          <button type="submit">Update facility</button>
+        </form>
+        <form
+          action="/ecoFacilities/delete/<%= facility._id%>?_method=DELETE"
+          method="post"
+        >
+          <button type="submit">Delete facility</button>
+        </form>
+
+        <% }%>
+       
+      </div>
+      <!-- <hr /> -->
+      <%})%>
+
+       <button id="likeButton" style="font-size: 18px">
+          <i class="fa fa-heart" id="fa-heart"></i>
+        </button>
+
+        <script>
+          document.getElementById("likeButton").addEventListener("click", cliked)
+
+          function cliked() {
+            document.getElementById("fa-heart").style.color = "red"
+          }
+        </script>
     </div>
-    <!-- <hr /> -->
-    <%})%>
-    </div>
-    
   </body>
 </html>
