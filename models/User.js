@@ -14,7 +14,12 @@ const userSchema = new Schema({
         type: String,
         enum: ["Admin", "User"],
         default: "User"
-    }
+    }, email: {
+        type: String,
+        require: true
+    },
+    isVaild: Boolean,
+    uniqueString: String
 })
 
 const User = model("User", userSchema)
