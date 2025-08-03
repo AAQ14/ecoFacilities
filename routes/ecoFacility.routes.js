@@ -92,7 +92,8 @@ router.delete("/delete/:id", async (req, res) => {
 
 router.put("/like/:id", async (req, res) => {
     try {
-        const { user } = req.session
+         const { user } = req.session
+        if(user){    
         const ecoFacility = await EcoFacility.findById(req.params.id)//.push(user._id)
 
         const isInArray = ecoFacility.like.findIndex((oneLike) => {
@@ -106,8 +107,11 @@ router.put("/like/:id", async (req, res) => {
             ecoFacility.like.splice(isInArray, 1)
         )
         ecoFacility.save()
+        }
 
-
+        else{
+            return res.render("/ecoFacilities")
+        }
         res.redirect("/ecoFacilities")
     } catch (err) {
         console.log(err)

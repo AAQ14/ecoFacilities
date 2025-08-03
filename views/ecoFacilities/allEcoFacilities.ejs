@@ -45,7 +45,8 @@
         <p>contributor: <%= facility.contributor.username%></p>
         <img src="<%= facility.img%> " />
       
-        <form action="/ecoFacilities/like/<%=facility._id%>?_method=PUT" method="post">
+        <% if(user){ %>
+           <form action="/ecoFacilities/like/<%=facility._id%>?_method=PUT" method="post">
           <button id="likeButton" style="font-size: 18px" type="submit">
             <% if(user && facility.like.includes(user._id)){%>
                 <i style="color:red" class="fa fa-heart" id="fa-heart"></i><%= numOfLikes%>
@@ -57,6 +58,18 @@
 
         </button>
         </form>
+        <% } else{%>  
+          <div>
+ <button id="likeButton" style="font-size: 18px" type="submit">
+
+                          <i  class="fa fa-heart" id="fa-heart"></i><%= numOfLikes%>
+                                  </button>
+          </div>
+         
+
+
+        <% }%>
+       
 
         <% if(user) {%>
         <form action="/ecoFacilities/update/<%=facility._id%>" method="get">

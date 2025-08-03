@@ -12,13 +12,13 @@
 
     <h1>Log in</h1>
     <form action="/auth/login" method="post">
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username">
+ <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter Username" required><br>
 
         <label for="password">Password:</label>
-        <input type="password" name="password" id="password">
+        <input type="password" id="password" placeholder="Enter Password" name="password" required><br>
 
-        <button type="submit">Login</button>
+        <button type="submit" class="logBtn">Login</button>
     </form>
 
     <% if(error){ %> 

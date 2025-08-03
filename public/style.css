@@ -1,5 +1,12 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&family=DM+Sans:ital,opsz,wght@0,9..40,167;1,9..40,167&family=Dai+Banna+SIL:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Gabriela&family=Londrina+Shadow&family=Pixelify+Sans:wght@400..700&family=Raleway:ital@0;1&family=Tiny5&display=swap');
+
 body {
-  background-color: #faf9ee;
+  background-color: #f4f4f0;
+   font-family: "Gabriela", serif;
+  font-weight: 600;
+  font-style: normal;
+  text-align: center;
 }
 .facilities {
   display: flex;
@@ -30,4 +37,44 @@ img {
 
 #likeButton {
   width: 50px;
+}
+
+h1 {
+  font-family: "Gabriela", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+button{
+   font-family: "Gabriela", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+input {
+  width: 35%;
+  padding: 15px;
+  margin: 5px 0 22px 0; 
+  border: 2px solid darkgray;
+  border-radius: 4px
+}
+
+input:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+button{
+  font-size: large;
+  padding: 14px 20px;
+  border-radius: 4px;
+  opacity: 0.9;
+}
+
+.logBtn{
+  background-color: rgb(87, 153, 129);
+}
+
+button:hover{
+  opacity : 1;
 }

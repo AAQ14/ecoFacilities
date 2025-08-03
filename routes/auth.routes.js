@@ -12,7 +12,7 @@ router.post(("/sign-up"), async (req, res) => {
         const { username, password, email } = req.body
 
         if (!username || !password || !email) {
-            return res.render("auth/sign-up.ejs", { error: "All fields are required"})
+            return res.render("auth/sign-up.ejs", { error: "All fields are required" })
         }
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -28,7 +28,7 @@ router.post(("/sign-up"), async (req, res) => {
 
         function randString() {
             let randStr = ''
-            for(let i =0; i<6; i++){
+            for (let i = 0; i < 6; i++) {
                 const num = Math.floor((Math.random() * 10) + 1)
                 randStr += num
             }
@@ -37,31 +37,32 @@ router.post(("/sign-up"), async (req, res) => {
         }
 
         const sendMail = (email, uniqueString) => {
-            var Transport = nodemailer.createTransport({
-                service: "Gmail",
+            let transport = nodemailer.createTransport({
+                service: "gmail",
                 auth: {
-                    user:process.env.USER,
+                    user: process.env.USER,
                     pass: process.env.PASS
                 }
             })
 
-            var mailOptions
-            let sender = "ECO FACILITIES"
-            mailOptions = {
-                from: sender,
-                to : email,
+
+            let mailOptions = {
+                from: process.env.USER,
+                to: email,
                 subject: "Email confirmation",
                 html: `Press <a href=http://localhost:3000/auth/verify/${uniqueString}> here </a> to verify your email. Thanks`
             }
-
-            Transport.sendMail(mailOptions, function(err, response) {
-                if(err){
+            transport.sendMail(mailOptions, function (err, response) {
+                if (err) {
                     console.log(err)
                 } else {
                     console.log("Message sent")
                 }
             })
+
         }
+
+
 
         const passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
         if (!passRegex.test(password)) {
@@ -81,7 +82,7 @@ router.post(("/sign-up"), async (req, res) => {
         const newUser = {
             username,
             password: hashPass,
-            isValid, 
+            isValid,
             uniqueString
         }
 
@@ -93,38 +94,38 @@ router.post(("/sign-up"), async (req, res) => {
     }
 })
 
-router.get('/verify/:uniqueString', async(req,res) =>{
-    const {uniqueString}= req.params
-    
-    const user = await User.findOne({uniqueString: uniqueString})
-    if(user) {
+router.get('/verify/:uniqueString', async (req, res) => {
+    const { uniqueString } = req.params
+
+    const user = await User.findOne({ uniqueString: uniqueString })
+    if (user) {
         user.isValid = true
         await user.save
-        
+
         res.redirect("/ecoFacilities")
-    }else {
+    } else {
         res.json("user not found")
     }
 })
 
-router.get("/login" , (req,res)=>{
-    res.render("auth/login.ejs", {error: null})
+router.get("/login", (req, res) => {
+    res.render("auth/login.ejs", { error: null })
 })
 
 
-router.post("/login",async (req,res)=>{
-    try{
+router.post("/login", async (req, res) => {
+    try {
 
-        const{username, password} = req.body
-        
-        const userInDataBase = await User.findOne({username : req.body.username})
-        
-        if(!username || !password){
-            return res.render("auth/login.ejs", {error: "All fields are required"})
+        const { username, password } = req.body
+
+        const userInDataBase = await User.findOne({ username: req.body.username })
+
+        if (!username || !password) {
+            return res.render("auth/login.ejs", { error: "All fields are required" })
         }
 
-        if(!userInDataBase) {
-            return res.render("auth/login.ejs", {error: " Username is not found"})
+        if (!userInDataBase) {
+            return res.render("auth/login.ejs", { error: " Username is not found" })
         }
 
         const validPass = bcrypt.compareSync(
@@ -132,8 +133,8 @@ router.post("/login",async (req,res)=>{
             userInDataBase.password
         )
 
-        if(!validPass) {
-            return res.render("auth/login.ejs", {error: "Incorrect password"})
+        if (!validPass) {
+            return res.render("auth/login.ejs", { error: "Incorrect password" })
         }
 
         req.session.user = {
@@ -144,13 +145,13 @@ router.post("/login",async (req,res)=>{
         }
 
         res.redirect("/ecoFacilities")
-    }catch(err){
-        console.log("Error during sign-in:" , err)
-        res.render("auth/login.ejs", {error: "An unexpected error occured."}) //template
+    } catch (err) {
+        console.log("Error during sign-in:", err)
+        res.render("auth/login.ejs", { error: "An unexpected error occured." }) //template
     }
 })
 
-router.get("/logout", (req,res)=>{
+router.get("/logout", (req, res) => {
     req.session.destroy()
     res.redirect("auth/login")
 })
