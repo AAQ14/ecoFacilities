@@ -1,17 +1,27 @@
 <link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <nav>
-    <% if(user) {%>
+    <div class="logo">
+       <h4 id="logo-name"><img src="/images/earth.png" id="logo"> Eco Facilities</h4> 
+    </div>
+    <div>
+       <ul>
+         <% if(user) {%>
         <% if(user.userType === 'Admin') {%>
-                <a href="/users">Users Info</a>
+              <li><a href="/users">Users Info</a></li>  
              <% } %>
-    <a href="/ecoFacilities">Eco Facilities</a>
-    <a href="/auth/logout">Logout</a>
+   <li><a href="/ecoFacilities">HOME</a></li>  
+   <li><a href="/auth/logout">Logout</a></li>  
+  
     <%= user.username%>
 
    
 
     <%} else{%>
-        <a href="/auth/login">Login</a>
-        <a href="/auth/sign-up">Sign Up</a>
+    <li><a href="/ecoFacilities"><i style="font-size:24px" class="fa">&#xf015;</i>     HOME</a></li> 
+        <li><a href="/auth/login"></i> <i class="fa fa-user" style="font-size:24px"></i>    Login</a></li>  
     <%}%>
+       </ul>
+    </div>
+    
 </nav>

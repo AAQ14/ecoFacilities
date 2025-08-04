@@ -12,21 +12,19 @@
     <script>
       // const button = document.querySelector("#likeButton");
 
-      function clickedLike(){
-
-        console.log("button clicked")
+      function clickedLike() {
+        console.log("button clicked");
       }
       // button.addEventListener((event) => {
       //   console.log("button clicked");
       // });
-
-  
     </script>
   </head>
   <body>
     <%- include('../partials/header') %>
 
-    <h1>Eco Facilities</h1>
+    <h1>Eco Facilities </h1>
+     
     <% if (user){%>
     <form action="/ecoFacilities/new" method="get">
       <button type="submit">Add new facility</button>
@@ -35,7 +33,8 @@
     <div class="facilities">
       <% allEcoFacilities.forEach((facility)=>{%>
       <div class="oneFac">
-        <h3> <%= facility.name%></h3>
+        <div>
+          <h3><%= facility.name%></h3>
         <p>category: <%=facility.category%></p>
         <p>description: <%=facility.descrtiption%></p>
         <p>house number: <%=facility.houseNumber%></p>
@@ -43,36 +42,37 @@
         <p>town: <%=facility.town%></p>
         <p>status: <%=facility.status%></p>
         <p>contributor: <%= facility.contributor.username%></p>
-        <img src="<%= facility.img%> " />
-      
+        </div>
+
+        <div>
+           <img src="<%= facility.img%> " />
+        </div>
+
+
         <% if(user){ %>
-           <form action="/ecoFacilities/like/<%=facility._id%>?_method=PUT" method="post">
+        <div>
+          <form
+          action="/ecoFacilities/like/<%=facility._id%>?_method=PUT"
+          method="post"
+        >
           <button id="likeButton" style="font-size: 18px" type="submit">
             <% if(user && facility.like.includes(user._id)){%>
-                <i style="color:red" class="fa fa-heart" id="fa-heart"></i><%= numOfLikes%>
-            <%} else{%>
-                <i  class="fa fa-heart" id="fa-heart"></i><%= numOfLikes%>
-
-
-            <%} %>
-
-        </button>
+            <i style="color: red" class="fa fa-heart" id="fa-heart"></i><%=
+            numOfLikes%> <%} else{%>
+            <i class="fa fa-heart" id="fa-heart"></i><%= numOfLikes%> <%} %>
+          </button>
         </form>
-        <% } else{%>  
+        </div>
+        <% } else{%>
+        <div>
+          <button id="likeButton" style="font-size: 18px" type="submit">
+            <i class="fa fa-heart" id="fa-heart"></i><%= numOfLikes%>
+          </button>
+        </div>
+
+        <% }%> <% if(user) {%>
           <div>
- <button id="likeButton" style="font-size: 18px" type="submit">
-
-                          <i  class="fa fa-heart" id="fa-heart"></i><%= numOfLikes%>
-                                  </button>
-          </div>
-         
-
-
-        <% }%>
-       
-
-        <% if(user) {%>
-        <form action="/ecoFacilities/update/<%=facility._id%>" method="get">
+            <form action="/ecoFacilities/update/<%=facility._id%>" method="get">
           <button type="submit">Update facility</button>
         </form>
         <form
@@ -81,16 +81,16 @@
         >
           <button type="submit">Delete facility</button>
         </form>
+          </div>
+        
 
         <% }%>
-       
       </div>
-         
+
       <!-- <hr /> -->
       <%})%>
 
-        <script>   
-        </script>
+      <script></script>
     </div>
   </body>
 </html>

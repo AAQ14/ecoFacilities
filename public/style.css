@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Concert+One&family=DM+Sans:ital,opsz,wght@0,9..40,167;1,9..40,167&family=Dai+Banna+SIL:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Gabriela&family=Londrina+Shadow&family=Pixelify+Sans:wght@400..700&family=Raleway:ital@0;1&family=Tiny5&display=swap');
 
 body {
-  background-color: #f4f4f0;
+  background-color: #ffffff; /*#EAEFEF*/
    font-family: "Gabriela", serif;
   font-weight: 600;
   font-style: normal;
@@ -43,6 +43,9 @@ h1 {
   font-family: "Gabriela", serif;
   font-weight: 700;
   font-style: normal;
+  font-size: 90px;
+  color: #464660;
+  margin: 0px ;
 }
 
 button{
@@ -77,4 +80,53 @@ button{
 
 button:hover{
   opacity : 1;
+}
+
+.login{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#logo{
+  width: 40px;
+}
+
+#logo-name{
+  color: rgb(87, 153, 129);
+  font-size: 30px;
+}
+
+nav{
+  display: flex;
+  align-items: baseline ;
+  flex-direction: row; 
+  position: fixed;
+}
+
+nav ul {
+  list-style-type: none;
+ margin-left:210px;
+margin-top: 100px ;
+  overflow: hidden;
+  background-color:rgb(87, 153, 129, 0.9);
+  border-radius: 40px;
+}
+
+nav li{
+  float: left;
+}
+
+nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 90px;
+  text-decoration: none;
+}
+
+nav li a:hover:not(.active) {
+  background-color: #111;
+}
+.logo{
+  margin-left: 40px;
 }
