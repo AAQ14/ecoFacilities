@@ -33,20 +33,28 @@
     <div class="facilities">
       <% allEcoFacilities.forEach((facility)=>{%>
       <div class="oneFac">
-        <div>
-          <h3><%= facility.name%></h3>
-        <p>category: <%=facility.category%></p>
+        <div id="facility-name">
+           <h2 ><%= facility.name%></h2>
+        </div>
+        <div class="fac">
+         <div class="fac-des">
+          <p>category: <%=facility.category%></p>
         <p>description: <%=facility.descrtiption%></p>
         <p>house number: <%=facility.houseNumber%></p>
         <p>street name: <%=facility.streetName%></p>
         <p>town: <%=facility.town%></p>
         <p>status: <%=facility.status%></p>
         <p>contributor: <%= facility.contributor.username%></p>
-        </div>
-
+         </div>
         <div>
            <img src="<%= facility.img%> " />
         </div>
+       
+        </div>
+
+   
+           
+       
 
 
         <% if(user){ %>

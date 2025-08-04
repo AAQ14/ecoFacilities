@@ -20,6 +20,7 @@ body {
 .oneFac {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   width: 60%;
   height: 100%;
   padding: 10px;
@@ -29,6 +30,15 @@ body {
   border-radius: 9px;
   margin: 12px;
   /* overflow: scroll; */
+}
+
+#facility-name{
+  align-self: center;
+}
+
+.fac{
+  display: flex;
+  /* flex-direction: r; */
 }
 
 img {
@@ -100,13 +110,11 @@ nav{
   display: flex;
   align-items: baseline ;
   flex-direction: row; 
-  position: fixed;
 }
 
 nav ul {
   list-style-type: none;
  margin-left:210px;
-margin-top: 100px ;
   overflow: hidden;
   background-color:rgb(87, 153, 129, 0.9);
   border-radius: 40px;
@@ -120,7 +128,7 @@ nav li a {
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 90px;
+  padding: 14px 30px;
   text-decoration: none;
 }
 
@@ -130,3 +138,4 @@ nav li a:hover:not(.active) {
 .logo{
   margin-left: 40px;
 }
+
