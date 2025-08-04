@@ -1,5 +1,5 @@
 const router = require("express").Router()
-const EcoFacility = require("../models/ecoFacility")
+const EcoFacility = require("../models/EcoFacility")
 const User = require("../models/User")
 const mongoose = require("mongoose")
 
