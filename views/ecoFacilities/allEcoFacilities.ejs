@@ -32,6 +32,7 @@
     <%} %>
     <div class="facilities">
       <% allEcoFacilities.forEach((facility)=>{%>
+        <% let numOfLikes = facility.like.length%>
       <div class="oneFac">
         <div id="facility-name">
            <h2 ><%= facility.name%></h2>

@@ -15,14 +15,14 @@ router.post("/new", async (req, res) => {
         } else if (req.body.category === "Bike Share Stations") {
             req.body.img = "/images/parking.png"
         } else if (req.body.category === "e-Scooters") {
-            req.body.img = "/images/e-Scooters.jpg"
+            req.body.img = "/images/electric-scooter.png"
         } else if (req.body.category === "Public EV Charging Stations") {
             req.body.img = "/images/PublicEVChargingStations.png"
         }
 
         await EcoFacility.create(req.body)
         console.log("Eco Facility added successfully")
-        res.redirect("/ecoFacilities/new")
+        res.redirect("/ecoFacilities")
     } catch (err) {
         console.log(err)
     }
@@ -31,14 +31,8 @@ router.post("/new", async (req, res) => {
 router.get("", async (req, res) => {
     try {
         const allEcoFacilities = await EcoFacility.find().populate('contributor')
-        // console.log(allEcoFacilities)
-        let numOfLikes
-        allEcoFacilities.forEach((facility) => {
-            numOfLikes = facility.like.length
-            console.log(numOfLikes)
-        })
-
-        res.render("ecoFacilities/allEcoFacilities.ejs", { allEcoFacilities, numOfLikes })
+      
+        res.render("ecoFacilities/allEcoFacilities.ejs", { allEcoFacilities })  
     } catch (err) {
         console.log(err)
     }
