@@ -13,7 +13,7 @@ const EcoFacilityRoutes = require("./routes/ecoFacility.routes")
 const usersRoutes = require("./routes/users.route")
 const isAdminUser = require("./middleware/isAdminUser")
 const User = require("./models/User")
-const EcoFacility = require("./models/ecoFacility")
+const EcoFacility = require("./models/EcoFacility")
 
 //middlewares
 app.use(express.static('public'))
