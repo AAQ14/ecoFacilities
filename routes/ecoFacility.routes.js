@@ -13,7 +13,7 @@ router.post("/new", async (req, res) => {
         if (req.body.category === "Recycling Bins") {
             req.body.img = "/images/recycling Bins.png"
         } else if (req.body.category === "Bike Share Stations") {
-            req.body.img = "/images/BikeShareStation.png"
+            req.body.img = "/images/parking.png"
         } else if (req.body.category === "e-Scooters") {
             req.body.img = "/images/e-Scooters.jpg"
         } else if (req.body.category === "Public EV Charging Stations") {

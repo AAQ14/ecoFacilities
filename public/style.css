@@ -38,7 +38,9 @@ body {
 
 .fac{
   display: flex;
-  /* flex-direction: r; */
+  /* flex-direction: column; */
+  justify-content: space-around;
+  align-items: center;
 }
 
 img {
@@ -110,6 +112,13 @@ nav{
   display: flex;
   align-items: baseline ;
   flex-direction: row; 
+  align-items: center;
+  position: sticky;
+  top:0
+}
+
+nav div{
+  display: inline-block;
 }
 
 nav ul {
