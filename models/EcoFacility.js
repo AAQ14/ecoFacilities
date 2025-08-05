@@ -11,7 +11,7 @@ const ecoFacilitySchema = new Schema({
         require : true, 
         enum : ["Recycling Bins", "e-Scooters", "Bike Share Stations", "Public EV Charging Stations"
             , "Battery Recycling Points", "Community Compost Bins", "Solar-Powered Benches", "Green Roofs", "Public Water Refill Stations",
-             "Waste Oil Collection Points", "Book Swap Stations", "Pollinator Gardens", "E-Waste Collection Bins", "Clothing Donation Bins", "Community Tool Libraries"]
+             "Waste Oil Collection Points", "Book Swap Stations", "Pollinator Gardens", "E-Waste Collection Bins", "Clothing Donation Bins"]
     },
     descrtiption:{
         type: String
