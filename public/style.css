@@ -68,7 +68,7 @@ button{
 
 input {
   width: 35%;
-  padding: 15px;
+  padding: 20px 60px;
   margin: 5px 0 22px 0; 
   border: 2px solid darkgray;
   border-radius: 4px
@@ -98,8 +98,17 @@ button:hover{
 .login{
   display: flex;
   flex-wrap: wrap;
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  gap: 200px;
+ transform: translateY(-20%)
 }
 
+.login-form{
+  margin-right: 100px;
+  margin-top: 160px;
+
+}
 #logo{
   width: 40px;
 }
@@ -150,3 +159,10 @@ nav li a:hover:not(.active) {
   margin-left: 40px;
 }
 
+#eScooters-img{
+  width: 300px;
+}
+
+#publicEV-img{
+   width: 250px;
+}

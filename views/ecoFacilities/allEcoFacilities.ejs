@@ -48,7 +48,13 @@
         <p>contributor: <%= facility.contributor.username%></p>
          </div>
         <div>
+          <% if(facility.category === "e-Scooters" ||  facility.category ==="Clothing Donation Bins"){ %>
+             <img src="<%= facility.img%> " id="eScooters-img"/>
+             <%} else if(facility.category === "Public EV Charging Stations"){ %>
+              <img src="<%= facility.img%> " id="publicEV-img"/>
+          <%}else{%>
            <img src="<%= facility.img%> " />
+           <% } %>
         </div>
        
         </div>
@@ -101,5 +107,6 @@
 
       <script></script>
     </div>
+     <%- include('../partials/footer') %>
   </body>
 </html>

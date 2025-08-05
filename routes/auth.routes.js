@@ -1,7 +1,7 @@
 const router = require("express").Router()
 const User = require("../models/User")
 const bcrypt = require("bcrypt")
-const nodemailer = require("nodemailer")
+
 
 router.get(("/sign-up"), (req, res) => {
     res.render("auth/sign-up.ejs", { error: null })
@@ -14,55 +14,6 @@ router.post(("/sign-up"), async (req, res) => {
         if (!username || !password || !email) {
             return res.render("auth/sign-up.ejs", { error: "All fields are required" })
         }
-
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-        if (!emailRegex.test(email)) {
-            return res.render("auth/sign-up.ejs", {
-                error: "Please enter a valied email address"
-            })
-        }
-
-        //Email validation
-        const uniqueString = randString()
-        const isValid = false
-
-        function randString() {
-            let randStr = ''
-            for (let i = 0; i < 6; i++) {
-                const num = Math.floor((Math.random() * 10) + 1)
-                randStr += num
-            }
-
-            return randStr
-        }
-
-        const sendMail = (email, uniqueString) => {
-            let transport = nodemailer.createTransport({
-                service: "gmail",
-                auth: {
-                    user: process.env.USER,
-                    pass: process.env.PASS
-                }
-            })
-
-
-            let mailOptions = {
-                from: process.env.USER,
-                to: email,
-                subject: "Email confirmation",
-                html: `Press <a href=http://localhost:3000/auth/verify/${uniqueString}> here </a> to verify your email. Thanks`
-            }
-            transport.sendMail(mailOptions, function (err, response) {
-                if (err) {
-                    console.log(err)
-                } else {
-                    console.log("Message sent")
-                }
-            })
-
-        }
-
-
 
         const passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
         if (!passRegex.test(password)) {

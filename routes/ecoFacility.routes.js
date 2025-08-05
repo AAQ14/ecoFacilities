@@ -15,10 +15,27 @@ router.post("/new", async (req, res) => {
         } else if (req.body.category === "Bike Share Stations") {
             req.body.img = "/images/parking.png"
         } else if (req.body.category === "e-Scooters") {
-            req.body.img = "/images/electric-scooter.png"
-        } else if (req.body.category === "Public EV Charging Stations") {
-            req.body.img = "/images/PublicEVChargingStations.png"
+            req.body.img = "/images/E-scooters.png"
+        } else if(req.body.category === "Public EV Charging Stations"){
+            req.body.img = "/images/charging.png"
+        }else if(req.body.category === "Battery Recycling Points"){
+            req.body.img = "/images/processing-point.png"
+        }else if(req.body.category === "Community Compost Bins"){
+            req.body.img = "/images/composting.png"
+        }else if(req.body.category === "Green Roofs"){
+            req.body.img = "/images/green-roof.png"
+        }else if(req.body.category === "Public Water Refill Stations"){
+            req.body.img = "/images/refill.png"
+        }else if(req.body.category === "Waste Oil Collection Points"){
+            req.body.img = "/images/liquid.png"
+        }else if(req.body.category === "Pollinator Gardens"){
+            req.body.img = "/images/insects.png"
+        }else if(req.body.category === "E-Waste Collection Bins"){
+            req.body.img = "/images/E-waste.jpeg"
+        }else if(req.body.category === "Clothing Donation Bins"){
+            req.body.img = "/images/donate_03.jpg"
         }
+
 
         await EcoFacility.create(req.body)
         console.log("Eco Facility added successfully")
@@ -68,27 +85,11 @@ router.delete("/delete/:id", async (req, res) => {
     }
 })
 
-// const button = document.querySelector("#likeButton") 
-
-// button.addEventListener('click', (event)=>{
-//     event.getElementById("fa-heart").style.color = "red"
-// })
-
-//1- the like button can be clicked only if the user is logged in 
-//2- After clicking the like button the number of likes must be incremented 
-//3- Push the id of the user who clicked the like button on the array of likes
-// 4- if the user clicked the like button again and its id already exist on the array then it wil dislike and the number of likes will be decremented
-
-
-// router.get('/like', (req,res)=>{
-//     res.render("ecoFacilities/like.ejs")
-// })
-
 router.put("/like/:id", async (req, res) => {
     try {
          const { user } = req.session
         if(user){    
-        const ecoFacility = await EcoFacility.findById(req.params.id)//.push(user._id)
+        const ecoFacility = await EcoFacility.findById(req.params.id)
 
         const isInArray = ecoFacility.like.findIndex((oneLike) => {
             return JSON.stringify(oneLike) === JSON.stringify(user._id)
@@ -104,6 +105,7 @@ router.put("/like/:id", async (req, res) => {
         }
 
         else{
+            console.log("ELSE")
             return res.render("/ecoFacilities")
         }
         res.redirect("/ecoFacilities")

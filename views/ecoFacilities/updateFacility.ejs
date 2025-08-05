@@ -20,6 +20,7 @@
       <select name="category" id="category"> <!--selected = true-->
          <option value="Recycling Bins" <%if(ecoFacility.category=="Recycling Bins"){%> selected="true" <%}%>>Recycling Bins</option>
         <option value="e-Scooters" <%if(ecoFacility.category=="e-Scooters"){%> selected="true" <%}%>>e-Scooters</option>
+        <option value="e-Scooters" <%if(ecoFacility.category=="Bike Share Stations"){%> selected="true" <%}%>>Bike Share Stations</option>
         <option value="Public EV Charging Stations" <%if(ecoFacility.category=="Public EV Charging Stations"){%> selected="true" <%}%>>Public EV Charging Stations</option>
         <option value="Battery Recycling Points" <%if(ecoFacility.category=="Battery Recycling Points"){%> selected="true" <%}%>>Battery Recycling Points</option>
         <option value="Community Compost Bins" <%if(ecoFacility.category=="Community Compost Bins"){%> selected="true" <%}%>>Community Compost Bins</option>
@@ -77,6 +78,6 @@
     <form action="/ecoFacilities" method="get">
       <button type="submit">Cancel</button>
     </form>
-
+ <%- include('../partials/footer') %>
   </body>
 </html>
