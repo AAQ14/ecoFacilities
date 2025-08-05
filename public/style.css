@@ -95,7 +95,7 @@ button:hover{
   display: flex;
   flex-wrap: wrap;
   gap: 200px;
- transform: translateY(-20%)
+ transform: translateY(-30%)
 }
 
 .login-form{
