@@ -28,4 +28,4 @@ I created an Eco Facilities website. Eco Facilities refer to the buildings that 
 * https://cssgenerator.org/box-shadow-css-generator.html
 
 ## Conclusion
-I enjoyed building this website especially the CRUD functionalities and also the like functionality. Also, during this project I learned new things like how to impoer packages, as well as creating different models which interact witch I can connect them by a reference to each other.
+I enjoyed building this website especially the CRUD functionalities and also the like functionality. Moreover, during this project I learned new things like how to impoer packages, as well as creating different models which interact witch I can connect them by a reference to each other.
