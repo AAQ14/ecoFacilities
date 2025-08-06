@@ -32,7 +32,6 @@ router.post("/new", async(req,res)=>{
 
     await User.create(newUser)
 
-    // res.redirect("/user")
     console.log("user created successfully")
     } catch (err) {
         console.log("error ocurred: ", err)
